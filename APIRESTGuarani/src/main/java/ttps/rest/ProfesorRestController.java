@@ -20,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ttps.clases.*;
 
 @RestController
-@RequestMapping(value = "/profesores")
+@RequestMapping(value = "/Profesor")
 public class ProfesorRestController {
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -41,13 +41,13 @@ public class ProfesorRestController {
 		anios.add(4);
 		p1.setAnios(anios);
 		
-		Profesor p2 = new Profesor(5,"Jorge","Rosso","jorgerosso@gmail.com","jorgerosso","jrosso123");
+		Profesor p2 = new Profesor(5,"Gustavo","Rossi","gustavorossi@gmail.com","grossi","grossi123");
 		List<Integer> anios2 = new ArrayList<Integer>();
 		anios2.add(2);
 		anios2.add(3);
 		p2.setAnios(anios2);
 		
-		Profesor p3 = new Profesor(6,"Luciano","Nomdedeu","luchonomdedeu@gmail.com","luchonomdedeu","lnomdedeu123");
+		Profesor p3 = new Profesor(6,"Juan Pablo","Perez","jpperez@gmail.com","jpperez","jpperez123");
 		List<Integer> anios3 = new ArrayList<Integer>();
 		anios3.add(2);
 		anios3.add(3);

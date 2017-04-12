@@ -20,7 +20,7 @@ import org.springframework.web.util.UriComponentsBuilder;
 import ttps.clases.*;
 
 @RestController
-@RequestMapping(value = "/alumnos")
+@RequestMapping(value = "/Alumno")
 public class AlumnoRestController {
 	
 	@RequestMapping(method = RequestMethod.GET)
@@ -68,8 +68,9 @@ public class AlumnoRestController {
 		return null;
 	}
 	
-	@RequestMapping(value = "/chequearlogin", method = RequestMethod.POST)
+	@RequestMapping(value = "/chequearlogin", method = RequestMethod.POST, consumes = MediaType.APPLICATION_JSON_VALUE)
 	public ResponseEntity<Void> chequearLogin(@RequestBody Usuario usuario, UriComponentsBuilder ucBuilder){
+		System.out.println("Usuario:" + usuario);
 		if (esValido(usuario)){
 			return new ResponseEntity<Void>(HttpStatus.OK);
 		}

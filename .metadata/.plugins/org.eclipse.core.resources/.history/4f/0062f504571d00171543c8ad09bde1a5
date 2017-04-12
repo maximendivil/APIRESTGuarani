@@ -1,0 +1,42 @@
+package ttps.clasesDAO;
+
+import java.io.Serializable;
+import java.util.List;
+
+import javax.persistence.Query;
+
+import org.springframework.stereotype.Repository;
+
+import ttps.clases.Cartelera;
+import ttps.clases.Comentario;
+import ttps.clases.Publicacion;
+import ttps.interfacesDAO.PublicacionDAO;
+
+@Repository
+public class PublicacionDAOHibernateJPA extends GenericDAOHibernateJPA<Publicacion> implements PublicacionDAO{
+	public PublicacionDAOHibernateJPA(){
+		super(Publicacion.class);
+	}
+	
+	@Override
+	public Publicacion obtenerPublicacion(long id) {
+		
+	}
+	@Override
+	public List<Comentario> obtenerComentarios(long id){
+		return null;
+	}
+	@Override
+	public void remover(long id) {
+		Publicacion p = (Publicacion) this.obtener(id);
+		p.setBorrado(1);
+		this.getEntityManager().merge(p);
+	}
+	
+	@Override
+	public List<Publicacion> obtenerTodasLasPublicaciones(){
+		Query q = this.getEntityManager().createQuery("Select p.descripcion, p.titulo, c.id, c.nombre from Publicacion p JOIN p.cartelera c Where p.borrado=0");
+		List<Publicacion> resultado = (List<Publicacion>) q.getResultList();
+		return resultado;
+	}
+}
