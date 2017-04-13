@@ -40,6 +40,7 @@ angular.module('myapp.cartelera')
       console.log("algo anduvo mal");
   	}
 	);
+	$scope.usuario = angular.fromJson(localStorage.getItem('usuario'));
 	/*$scope.anioActivo = 'primero';
 	//inicializo la cartelera con el primer año*/
   	$scope.cargarPublicaciones(1,"Ingresantes");

@@ -19,8 +19,9 @@ angular.module('myapp.login')
       console.log('El login responde: ');
       console.log(data);
       localStorage.setItem('tokenSeguridad', data.token.token);
-      //localStorage.setItem('usuario', data.usuario);
-      $rootScope.usuario = data.usuario;
+      var usuario = angular.toJson(data.usuario);
+      localStorage.setItem('usuario', usuario);
+      //$rootScope.usuario = data.usuario;
       defer.resolve(data);
     })
     .error(defer.reject);

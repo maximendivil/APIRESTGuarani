@@ -8,17 +8,23 @@ angular.module('myapp.cartelera')
   //$scope.brick = $stateParams.brick;
 
   $scope.viewComment = false;
+
   $scope.comments = [];
 
-  $scope.comments.push({
+  CarteleraService.getComentarios($idPublicacion).then(function(response){
+    $scope.comments = response.data;  
+  });
+  //$scope.comments = [];
+
+  /*$scope.comments.push({
     autor: 'Jorge Rosso',
     texto: 'Esto es el comentario de uno de los docentes de la c&aacute;tedra de TTPS 2016'
-  });
+  });*/
 
   $scope.submit = function(){
     $scope.viewComment = false;
     var comment = {
-        autor: 'Manuel Ortiz',
+        creador: { nombre : 'Manuel', apellido : 'Ortiz' },
         texto: $scope.newComment  //binding entre la vista y el controller a traves del $scope
     };
 
@@ -30,5 +36,7 @@ angular.module('myapp.cartelera')
       $scope.newComment = '';
     }
   };
+
+  $scope.usuario = angular.fromJson(localStorage.getItem('usuario'));
 
 });

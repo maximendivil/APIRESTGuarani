@@ -107,7 +107,7 @@
               <!-- END PANEL PARA COMENTAR -->
               </div>
               <!-- BEGIN COMENTARIOS -->
-              <div class="col-md-10 col-md-offset-1">
+              <div class="col-md-10 col-md-offset-1" ng-if="comments.length > 0">
                 <div class="portlet light ">
                   <div class="portlet-title tabbable-line">
                     <div class="caption">
@@ -125,7 +125,7 @@
                           </div>
                           <div class="mt-comment-body">
                             <div class="mt-comment-info">
-                              <span class="mt-comment-author">{{c.autor}}</span>
+                              <span class="mt-comment-author">{{c.creador.nombre}} {{c.creador.apellido}}</span>
                               <span class="mt-comment-date">26 Feb, 10:30AM</span>
                             </div>
                             <div class="mt-comment-text"> {{c.texto}} </div>
